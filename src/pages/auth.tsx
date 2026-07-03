@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useMutation, useQueryClient } from 'react-query'
-import { register, login } from '../../lib/api'
+import { register, login } from '../lib/api'
 import { useToast } from '../../hooks/use-toast'
 import { Button } from '../ui/Button'
 import { Input } from '../ui/Input'
