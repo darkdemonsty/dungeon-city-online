@@ -42,7 +42,7 @@
     "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.0",
-    "@tailwindcss/postcss": "^1.1.1",
+    "@tailwindcss/postcss": "^4.3.2",
     "concurrently": "^8.2.0",
     "drizzle-kit": "^0.25.0",
     "esbuild": "^0.21.0",
