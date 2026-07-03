@@ -63,22 +63,28 @@ export default function AuthPage() {
 
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Grid background effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-950 pointer-events-none"></div>
+      <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(0,255,255,.05) 25%, rgba(0,255,255,.05) 26%, transparent 27%, transparent 74%, rgba(0,255,255,.05) 75%, rgba(0,255,255,.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0,255,255,.05) 25%, rgba(0,255,255,.05) 26%, transparent 27%, transparent 74%, rgba(0,255,255,.05) 75%, rgba(0,255,255,.05) 76%, transparent 77%, transparent)', backgroundSize: '50px 50px' }}></div>
+      
       <AnimatePresence>
         {isBooting && <BootSequence />}
       </AnimatePresence>
       
       {!isBooting && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="w-full max-w-md px-4"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="w-full max-w-md px-4 relative z-10"
         >
-          <div className="border-2 border-primary p-6 rounded-lg glow-border">
-            <h1 className="text-3xl font-orbitron text-center text-primary glow-text animate-flicker mb-6">
-              DUNGEON CITY ONLINE [DC]
+          <div className="bg-gradient-to-b from-gray-900 to-black border border-cyan-500 border-opacity-50 p-8 rounded-lg shadow-2xl" style={{ boxShadow: '0 0 20px rgba(0,255,255,0.3), inset 0 0 20px rgba(0,255,255,0.05)' }}>
+            <h1 className="text-4xl font-orbitron text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2 font-black tracking-wider">
+              DUNGEON CITY
             </h1>
+            <p className="text-center text-cyan-400 text-xs font-tech mb-6 tracking-widest">[ ONLINE ]</p>
             
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <Input 
                 name="player_id" 
                 label="PLAYER ID" 
@@ -102,19 +108,21 @@ export default function AuthPage() {
               
               <Button 
                 type="submit" 
-                className="w-full" 
+                className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-cyan-500/50" 
                 loading={registerMutation.isPending || loginMutation.isPending}
               >
-                {mode === 'register' ? 'INITIALIZE' : 'JACK IN'}
+                {mode === 'register' ? '[ INITIALIZE ]' : '[ JACK IN ]'}
               </Button>
             </form>
             
-            <button
-              onClick={() => setMode(mode === 'login' ? 'register' : 'login')}
-              className="mt-4 text-center w-full text-secondary glow-text-secondary hover:opacity-70"
-            >
-              {mode === 'login' ? '[ REGISTER ]' : '[ BACK TO LOGIN ]'}
-            </button>
+            <div className="mt-6 pt-6 border-t border-cyan-500 border-opacity-30">
+              <button
+                onClick={() => setMode(mode === 'login' ? 'register' : 'login')}
+                className="text-center w-full text-cyan-400 hover:text-cyan-300 transition-colors font-tech text-sm tracking-wide"
+              >
+                {mode === 'login' ? '[ CREATE NEW ACCOUNT ]' : '[ BACK TO LOGIN ]'}
+              </button>
+            </div>
           </div>
         </motion.div>
       )}
