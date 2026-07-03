@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useQuery } from 'react-query'
-import { getAdminPlayers, getAdminReports, getUpdateLogs } from '../../lib/api'
-import { useAuth } from '../../hooks/use-auth'
+import { getAdminPlayers, getAdminReports, getUpdateLogs } from '../lib/api'
+import { useAuth } from '../hooks/use-auth'
 import { Card } from '../ui/Card'
 
 export default function AdminPage() {
