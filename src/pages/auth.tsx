@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useMutation, useQueryClient } from 'react-query'
 import { register, login } from '../lib/api'
 import { useToast } from '../hooks/use-toast'
-import { Button } from '../ui/Button'
-import { Input } from '../ui/Input'
+import { Button } from '../components/ui/Button'
+import { Input } from '../components/ui/Input'
 import { useLocation } from 'wouter'
 
 export default function AuthPage() {

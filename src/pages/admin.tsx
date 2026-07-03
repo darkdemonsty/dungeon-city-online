@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { getAdminPlayers, getAdminReports, getUpdateLogs } from '../lib/api'
 import { useAuth } from '../hooks/use-auth'
-import { Card } from '../ui/Card'
+import { Card } from '../components/ui/Card'
 
 export default function AdminPage() {
   const { player } = useAuth()
