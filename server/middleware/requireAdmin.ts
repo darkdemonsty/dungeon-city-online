@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
-import { db } from '../../lib/client'
-import { users } from '../../lib/db'
+import { db } from '../lib/client'
+import { users } from '../lib/db'
 import { eq } from 'drizzle-orm'
 
 export const requireAdmin = async (req: Request, res: Response, next: NextFunction) => {
