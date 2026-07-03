@@ -14,6 +14,15 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'dist/public'
+    outDir: 'dist/public',
+    emptyOutDir: true,
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-query', 'framer-motion'],
+        },
+      },
+    },
   }
 })

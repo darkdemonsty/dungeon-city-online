@@ -1,10 +1,18 @@
 {
+  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
+  "framework": null,
+  "functions": {
+    "api/index.ts": {
+      "runtime": "nodejs20.x",
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "/index.js?path=:path*"
+      "destination": "/api/index.ts"
     },
     {
       "source": "/:path*",
