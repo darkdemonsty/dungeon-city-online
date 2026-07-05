@@ -51,6 +51,13 @@
   --color-bg: #000000;
 }
 
+/* Ensure dark background even before JS hydrates */
+html, body, #root {
+  background-color: var(--color-bg);
+  color: #ffffff;
+  min-height: 100%;
+}
+
 /* Scanline overlay */
 body::before {
   content: "";
@@ -67,7 +74,7 @@ body::before {
     rgba(0, 0, 0, 0) 4px
   );
   pointer-events: none;
-  z-index: 9999;
+  z-index: 50;
 }
 
 /* Glow utilities */
@@ -126,7 +133,7 @@ body::before {
 /* Rarity colors */
 .rarity-common { color: #aaaaaa; }
 .rarity-uncommon { color: #00ff00; }
-.rarity-rare { color: #0080ff; }
+.rity-rare { color: #0080ff; }
 .rarity-legendary { color: #b44fff; }
 .rarity-mythic { color: #ff2d78; }
 
